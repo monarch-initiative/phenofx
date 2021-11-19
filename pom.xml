@@ -11,6 +11,7 @@
     <modules>
         <module>phenofx-ontology</module>
         <module>phenofx-variant</module>
+        <module>phenofx-demo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -24,12 +25,25 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <spring.version>4.3.8.RELEASE</spring.version>
+        <!-- bioinformatics -->
         <phenol.version>1.6.3</phenol.version>
         <svart.version>2.0.0-SNAPSHOT</svart.version>
 
+        <!-- gui -->
         <javafx.version>${java.version}</javafx.version>
         <controlsfx.version>11.1.0</controlsfx.version>
+
+        <!-- utils -->
+        <snakeyaml.version>1.28</snakeyaml.version>
+        <spring.version>5.3.13</spring.version>
+        <spring.boot.version>2.5.7</spring.boot.version>
+        <slf4j.version>1.7.32</slf4j.version>
+        <logback.version>1.2.7</logback.version>
+
+        <!-- tests -->
+        <junit-jupiter.version>5.8.1</junit-jupiter.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <testfx-junit5.version>4.0.16-alpha</testfx-junit5.version>
     </properties>
 
     <developers>
@@ -61,13 +75,6 @@
         <url>https://github.com/monarch-initiative/phenofx</url>
         <tag>v@{project.version}</tag>
     </scm>
-
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.5</version>
-    </parent>
 
     <dependencyManagement>
         <dependencies>
@@ -113,18 +120,65 @@
                 <artifactId>controlsfx</artifactId>
                 <version>${controlsfx.version}</version>
             </dependency>
+
+            <!-- UTILS  -->
+            <dependency>
+                <groupId>org.monarchinitiative.phenofx</groupId>
+                <artifactId>phenofx-ontology</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <!-- TEST -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testfx</groupId>
+                <artifactId>testfx-junit5</artifactId>
+                <version>${testfx-junit5.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -177,6 +231,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
