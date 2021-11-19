@@ -1,13 +1,14 @@
-package org.monarchinitiative.phenofx.ontology.tree;
+package org.monarchinitiative.phenofx.ontology.tree.selectable;
 
 import javafx.scene.control.TreeItem;
+import org.monarchinitiative.phenofx.ontology.tree.base.OntologyTreeItemBase;
 import org.monarchinitiative.phenol.ontology.data.Ontology;
 import org.monarchinitiative.phenol.ontology.data.Term;
 
 
-class SelectableOntologyTreeItem extends OntologyTreeItemBase<SelectableOntologyTreeTerm> {
+public class SelectableOntologyTreeItem extends OntologyTreeItemBase<SelectableOntologyTreeTerm> {
 
-    static SelectableOntologyTreeItem of(Ontology ontology, Term term) {
+    public static SelectableOntologyTreeItem of(Ontology ontology, Term term) {
         SelectableOntologyTreeTerm treeTerm = SelectableOntologyTreeTerm.of(term);
         return new SelectableOntologyTreeItem(ontology, treeTerm);
     }

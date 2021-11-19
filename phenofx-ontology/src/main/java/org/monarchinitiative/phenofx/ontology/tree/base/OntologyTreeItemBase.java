@@ -1,4 +1,4 @@
-package org.monarchinitiative.phenofx.ontology.tree;
+package org.monarchinitiative.phenofx.ontology.tree.base;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +11,7 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-abstract class OntologyTreeItemBase<T extends OntologyTreeTermBase> extends TreeItem<T> {
+public abstract class OntologyTreeItemBase<T extends OntologyTreeTermBase> extends TreeItem<T> {
 
     private final Ontology ontology;
 

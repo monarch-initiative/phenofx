@@ -1,11 +1,11 @@
-package org.monarchinitiative.phenofx.ontology.tree;
+package org.monarchinitiative.phenofx.ontology.tree.selectable;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.Property;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TreeCell;
 
-class SelectableOntologyTreeCell extends TreeCell<SelectableOntologyTreeTerm> {
+public class SelectableOntologyTreeCell extends TreeCell<SelectableOntologyTreeTerm> {
 
     private final TermSelectionButton selectionButton;
 
@@ -16,7 +16,7 @@ class SelectableOntologyTreeCell extends TreeCell<SelectableOntologyTreeTerm> {
         selectionButton = new TermSelectionButton();
     }
 
-    static SelectableOntologyTreeCell of() {
+    public static SelectableOntologyTreeCell of() {
         return new SelectableOntologyTreeCell();
     }
 

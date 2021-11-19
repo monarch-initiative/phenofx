@@ -1,4 +1,4 @@
-package org.monarchinitiative.phenofx.ontology.tree;
+package org.monarchinitiative.phenofx.ontology.tree.selectable;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
@@ -8,11 +8,12 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import org.monarchinitiative.phenofx.ontology.model.SelectableOntologyTerm;
 import org.monarchinitiative.phenofx.ontology.model.SelectionStatus;
+import org.monarchinitiative.phenofx.ontology.tree.base.OntologyTreeTermBase;
 import org.monarchinitiative.phenol.ontology.data.Term;
 
 import java.util.Objects;
 
-class SelectableOntologyTreeTerm extends OntologyTreeTermBase implements SelectableOntologyTerm {
+public class SelectableOntologyTreeTerm extends OntologyTreeTermBase implements SelectableOntologyTerm {
 
     private final BooleanProperty included = new SimpleBooleanProperty(this, "included", false);
     private final BooleanProperty excluded = new SimpleBooleanProperty(this, "excluded", false);

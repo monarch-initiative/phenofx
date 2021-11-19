@@ -1,15 +1,15 @@
-package org.monarchinitiative.phenofx.ontology.tree;
+package org.monarchinitiative.phenofx.ontology.tree.selectable;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.control.ToggleButton;
 import org.controlsfx.control.SegmentedButton;
 
-class TermSelectionButton extends SegmentedButton {
+public class TermSelectionButton extends SegmentedButton {
 
     private final ToggleButton includedButton = new ToggleButton("Y");
     private final ToggleButton excludedButton = new ToggleButton("N");
 
-    TermSelectionButton() {
+    public TermSelectionButton() {
         initGraphics();
     }
 

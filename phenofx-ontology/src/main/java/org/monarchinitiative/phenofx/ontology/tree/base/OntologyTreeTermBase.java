@@ -1,11 +1,11 @@
-package org.monarchinitiative.phenofx.ontology.tree;
+package org.monarchinitiative.phenofx.ontology.tree.base;
 
 import org.monarchinitiative.phenofx.ontology.model.OntologyTerm;
 import org.monarchinitiative.phenol.ontology.data.Term;
 
 import java.util.Objects;
 
-abstract class OntologyTreeTermBase implements OntologyTerm {
+public abstract class OntologyTreeTermBase implements OntologyTerm {
 
     protected final Term term;
 

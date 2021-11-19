@@ -3,7 +3,6 @@ package org.monarchinitiative.phenofx.ontology.tree;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  * javafx.graphics does not export com.sun.javafx.application to unnamed module @0x11e21d0e
  */
 @ExtendWith(ApplicationExtension.class)
-public class SelectableOntologyTreeTest {
+public class SimpleOntologyTreeTest {
 
     // TODO - replace with real ontology
     public static final File LOCAL_ONTOLOGY_OBO = new File("/home/ielis/tmp/hp.obo");
@@ -37,11 +36,11 @@ public class SelectableOntologyTreeTest {
         ONTOLOGY = OntologyLoader.loadOntology(LOCAL_ONTOLOGY_OBO);
     }
 
-    private SelectableOntologyTree tree;
+    private SimpleOntologyTree tree;
 
     @Start
     public void start(Stage stage) throws Exception {
-        tree = new SelectableOntologyTree();
+        tree = new SimpleOntologyTree();
         Scene scene = new Scene(tree, 600, 800);
         stage.setScene(scene);
         stage.show();
@@ -50,6 +49,7 @@ public class SelectableOntologyTreeTest {
 //    @Test
     public void test(FxRobot robot) {
         Platform.runLater(() -> tree.ontologyProperty().set(ONTOLOGY));
+        tree.ontologyTermInFocusProperty().addListener((obs, old, novel) -> System.err.printf("In focus: %s[%s]%n", novel.term().getClass(), novel.term().getId()));
         robot.sleep(20, TimeUnit.SECONDS);
     }
 }
