@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>16</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
@@ -30,7 +30,7 @@
         <svart.version>2.0.0-SNAPSHOT</svart.version>
 
         <!-- gui -->
-        <javafx.version>${java.version}</javafx.version>
+        <javafx.version>17.0.2-ea+1</javafx.version>
         <controlsfx.version>11.1.0</controlsfx.version>
 
         <!-- utils -->
