@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.monarchinitiative.phenol.io.OntologyLoader;
@@ -23,6 +24,7 @@ import java.util.concurrent.TimeUnit;
  * com.sun.javafx.application.ParametersImpl (in module javafx.graphics) because module
  * javafx.graphics does not export com.sun.javafx.application to unnamed module @0x11e21d0e
  */
+@Disabled("Needs local resources")
 @ExtendWith(ApplicationExtension.class)
 public class SimpleOntologyTreeTest {
 
@@ -46,7 +48,7 @@ public class SimpleOntologyTreeTest {
         stage.show();
     }
 
-//    @Test
+    @Test
     public void test(FxRobot robot) {
         Platform.runLater(() -> tree.ontologyProperty().set(ONTOLOGY));
         tree.ontologyTermInFocusProperty().addListener((obs, old, novel) -> System.err.printf("In focus: %s[%s]%n", novel.term().getClass(), novel.term().getId()));
