@@ -7,7 +7,6 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import org.monarchinitiative.phenofx.ontology.model.OntologyTerm;
 import org.monarchinitiative.phenofx.ontology.tree.base.OntologyTreeTermBase;
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
-abstract class BaseOntologyTree<T extends OntologyTreeTermBase> extends VBox {
+abstract class BaseOntologyTree<T extends OntologyTreeTermBase> extends TreeView<T> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseOntologyTree.class);
 
@@ -29,27 +28,19 @@ abstract class BaseOntologyTree<T extends OntologyTreeTermBase> extends VBox {
     private final ObjectProperty<OntologyTerm> ontologyTermInFocus = new SimpleObjectProperty<>(this, "ontologyTermInFocus");
     private final ChangeListener<OntologyTerm> ontologyTermChangeListener = getOntologyTermChangeListener();
 
-    private final TreeView<T> ontologyTreeView = new TreeView<>();
-
-    protected BaseOntologyTree() {
+    BaseOntologyTree() {
         super();
-        getChildren().add(ontologyTreeView);
         getStylesheets().add(BaseOntologyTree.class.getResource("OntologyTree.css").toExternalForm());
 
-        ontologyTreeView.setShowRoot(false);
-        ontologyTreeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
-        ontologyTreeView.prefWidthProperty().bind(widthProperty());
-        ontologyTreeView.prefHeightProperty().bind(heightProperty());
-        ontologyTreeView.minWidthProperty().bind(minWidthProperty());
-        ontologyTreeView.minHeightProperty().bind(minHeightProperty());
+        setShowRoot(false);
+        getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         ontology.addListener(getOntologyChangeListener());
     }
 
     abstract TreeItem<T> getRoot(Ontology ontology);
 
-    abstract Callback<TreeView<T>, TreeCell<T>> getCellFactory();
+    abstract Callback<TreeView<T>, TreeCell<T>> ontologyTreeCellFactory();
 
     public ObjectProperty<Ontology> ontologyProperty() {
         return ontology;
@@ -68,15 +59,15 @@ abstract class BaseOntologyTree<T extends OntologyTreeTermBase> extends VBox {
 
     private void clearOntologyTree() {
         setDisable(true);
-        ontologyTreeView.setRoot(null);
-        ontologyTreeView.setCellFactory(null);
+        setRoot(null);
+        setCellFactory(null);
         ontologyTermInFocus.removeListener(ontologyTermChangeListener);
     }
 
     private void initializeOntology(Ontology ontology) {
         setDisable(false);
-        ontologyTreeView.setRoot(getRoot(ontology));
-        ontologyTreeView.setCellFactory(getCellFactory());
+        setRoot(getRoot(ontology));
+        setCellFactory(ontologyTreeCellFactory());
         ontologyTermInFocus.addListener(ontologyTermChangeListener);
     }
 
@@ -108,9 +99,9 @@ abstract class BaseOntologyTree<T extends OntologyTreeTermBase> extends VBox {
             }
 
             // expand tree nodes in top -> down direction
-            List<TreeItem<T>> children = ontologyTreeView.getRoot().getChildren();
+            List<TreeItem<T>> children = getRoot().getChildren();
             stack.pop(); // get rid of 'All' node which is hidden
-            TreeItem<T> target = ontologyTreeView.getRoot();
+            TreeItem<T> target = getRoot();
             while (!stack.empty()) {
                 TermId current = stack.pop();
                 for (TreeItem<T> child : children) {
@@ -122,9 +113,9 @@ abstract class BaseOntologyTree<T extends OntologyTreeTermBase> extends VBox {
                     }
                 }
             }
-            ontologyTreeView.requestFocus();
-            ontologyTreeView.getSelectionModel().select(target);
-            ontologyTreeView.scrollTo(ontologyTreeView.getSelectionModel().getSelectedIndex() - 5);
+            requestFocus();
+            getSelectionModel().select(target);
+            scrollTo(getSelectionModel().getSelectedIndex() - 5);
         } else {
             LOGGER.warn("Unable to find the path from {} to {}", ontology.getRootTermId(), termId);
         }

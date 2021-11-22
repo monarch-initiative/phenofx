@@ -28,7 +28,7 @@ public class SelectableOntologyTree extends BaseOntologyTree<SelectableOntologyT
     }
 
     @Override
-    Callback<TreeView<SelectableOntologyTreeTerm>, TreeCell<SelectableOntologyTreeTerm>> getCellFactory() {
+    Callback<TreeView<SelectableOntologyTreeTerm>, TreeCell<SelectableOntologyTreeTerm>> ontologyTreeCellFactory() {
         return tv -> SelectableOntologyTreeCell.of();
     }
 

@@ -25,7 +25,7 @@ public class SimpleOntologyTree extends BaseOntologyTree<SimpleOntologyTreeTerm>
     }
 
     @Override
-    Callback<TreeView<SimpleOntologyTreeTerm>, TreeCell<SimpleOntologyTreeTerm>> getCellFactory() {
+    Callback<TreeView<SimpleOntologyTreeTerm>, TreeCell<SimpleOntologyTreeTerm>> ontologyTreeCellFactory() {
         return tv -> SimpleOntologyTreeCell.of();
     }
 
