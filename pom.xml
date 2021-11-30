@@ -12,6 +12,7 @@
         <module>phenofx-ontology</module>
         <module>phenofx-variant</module>
         <module>phenofx-demo</module>
+        <module>phenofx-commons</module>
     </modules>
     <packaging>pom</packaging>
 
