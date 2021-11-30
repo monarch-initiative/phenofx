@@ -14,6 +14,7 @@
         <module>phenofx-commons</module>
         <module>phenofx-demo</module>
         <module>phenofx-gui</module>
+        <module>phenofx-web</module>
     </modules>
     <packaging>pom</packaging>
 
