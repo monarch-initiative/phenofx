@@ -12,10 +12,10 @@
     <artifactId>phenofx-variant</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.monarchinitiative.svart</groupId>
-            <artifactId>svart</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.monarchinitiative.svart</groupId>-->
+<!--            <artifactId>svart</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>

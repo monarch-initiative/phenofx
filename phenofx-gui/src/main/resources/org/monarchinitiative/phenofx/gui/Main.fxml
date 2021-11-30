@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+
+<?import org.monarchinitiative.phenofx.commons.AgeControl?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.monarchinitiative.phenofx.gui.Main">
+   <children>
+       <AgeControl fx:id="ageControl"/>
+       <Button onAction="#statusButtonAction" text="Print status" prefWidth="150"/>
+   </children>
+</VBox>

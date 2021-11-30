@@ -15,19 +15,19 @@
             <VBox HBox.hgrow="NEVER">
                <children>
                   <Label id="years-label" text="Years" />
-                  <Spinner fx:id="yearsSpinner" />
+                  <Spinner fx:id="yearsSpinner" editable="true"/>
                </children>
             </VBox>
             <VBox>
                <children>
                   <Label id="months-label" text="Months" />
-                  <Spinner fx:id="monthsSpinner" />
+                  <Spinner fx:id="monthsSpinner" editable="true"/>
                </children>
             </VBox>
             <VBox>
                <children>
                   <Label id="days-label" text="Days" />
-                  <Spinner fx:id="daysSpinner" />
+                  <Spinner fx:id="daysSpinner" editable="true" />
                </children>
             </VBox>
          </children>
