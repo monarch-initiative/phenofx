@@ -12,6 +12,8 @@ The library offers the following components.
 The *selectable ontology tree* presents the ontology hierarchy as a tree, where each tree node has a segmented button 
 to indicate presence (`Y`) or absence (`N`) of the corresponding phenotype feature.
 
+We want to enable the user to specifically indicate the *absence* of a phenotype feature. 
+
 ![selectable_ontology_tree](img/selectable_ontology_tree.png)
 
 
