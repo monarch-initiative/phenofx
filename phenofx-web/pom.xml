@@ -9,17 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>phenofx-variant</artifactId>
+    <artifactId>phenofx-web</artifactId>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.monarchinitiative.svart</groupId>-->
-<!--            <artifactId>svart</artifactId>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
+            <groupId>org.monarchinitiative.phenofx</groupId>
+            <artifactId>phenofx-commons</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
+
+        <!-- TODO - add other dependencies for WEB app -->
     </dependencies>
 
 </project>

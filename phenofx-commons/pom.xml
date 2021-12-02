@@ -9,16 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>phenofx-variant</artifactId>
+    <artifactId>phenofx-commons</artifactId>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.monarchinitiative.svart</groupId>-->
-<!--            <artifactId>svart</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
+            <artifactId>javafx-fxml</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testfx</groupId>
+            <artifactId>testfx-junit5</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

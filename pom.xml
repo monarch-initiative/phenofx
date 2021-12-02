@@ -11,7 +11,10 @@
     <modules>
         <module>phenofx-ontology</module>
         <module>phenofx-variant</module>
+        <module>phenofx-commons</module>
         <module>phenofx-demo</module>
+        <module>phenofx-gui</module>
+        <module>phenofx-web</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -174,6 +177,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -183,11 +191,12 @@
             <artifactId>hamcrest</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!-- TODO - temporarily disabling the testing logging framework because it causes issues in module resolution. -->
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-simple</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
