@@ -2,6 +2,7 @@ package org.monarchinitiative.phenofx.questionnnaire;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -55,24 +56,11 @@ Logger LOGGER = LoggerFactory.getLogger(QuestionnairePane.class);
                 "-fx-border-radius: 5;" +
                 "-fx-border-color: blue;");
 
+        Label titleLabel = new Label("HPO-based Questionnaire");
+        setTop(titleLabel);
+
 //        Scene scene = new Scene(root);
-//
-//        Stage stage = new Stage();
-//        stage.setWidth(1000);
-//        stage.setHeight(700);
-//        stage.setScene(scene);
-//        stage.setTitle("HPO-Based Phenotype Questionnaire");
-//        stage.showAndWait();
-//        ListView<String> listView = new ListView<>();
-//        for (var pitem : this.phenoRows) {
-//            listView.getItems().add(pitem.toPhenoItem().toString());
-//        }
-//        listView.setMinWidth(990);
-//        listView.setMinHeight(650);
-//        HBox hbox = new HBox(listView);
-//        Scene scene2 = new Scene(hbox, 1000, 700);
-//        stage.setScene(scene2);
-//        stage.setTitle("Answers");
+
 //        stage.show();
     }
 
