@@ -11,6 +11,7 @@
     <modules>
         <module>phenofx-ontology</module>
         <module>phenofx-variant</module>
+        <module>phenofx-questionnaire</module>
         <module>phenofx-demo</module>
     </modules>
     <packaging>pom</packaging>
@@ -125,6 +126,11 @@
             <dependency>
                 <groupId>org.monarchinitiative.phenofx</groupId>
                 <artifactId>phenofx-ontology</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.monarchinitiative.phenofx</groupId>
+                <artifactId>phenofx-questionnaire</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>
