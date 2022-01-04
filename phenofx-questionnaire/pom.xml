@@ -33,4 +33,16 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>resources</directory>
+                <includes>
+                    <include>**/*.css</include>
+                    <include>**/*.txt</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
 </project>

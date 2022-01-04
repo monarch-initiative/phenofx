@@ -13,12 +13,15 @@ import org.monarchinitiative.phenofx.questionnnaire.phenoitem.PhenoItem;
 import org.monarchinitiative.phenofx.questionnnaire.qtable.PhenoqTable;
 import org.monarchinitiative.phenofx.questionnnaire.qtable.Qphenorow;
 import org.monarchinitiative.phenol.ontology.data.Ontology;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class QuestionnairePane extends BorderPane {
-
+Logger LOGGER = LoggerFactory.getLogger(QuestionnairePane.class);
     private PhenoqTable phenoqTable;
     private VBox root = new VBox();
     Button cancelButton = new Button("Cancel");
@@ -26,9 +29,13 @@ public class QuestionnairePane extends BorderPane {
 
     public QuestionnairePane() {
         super();
-       // getStyleClass().add("selectable-ontology-tree");
-       // getStylesheets().add(QuestionnairePane.class.getResource("SelectableOntologyTree.css").toExternalForm());
-
+        URL cssResource = QuestionnairePane.class.getResource("/QuestionnairePane.css");
+        if (cssResource != null) {
+            getStylesheets().add(cssResource.toExternalForm());
+            getStyleClass().add("pane");
+        } else {
+            LOGGER.error("Could not load CSS for QuestionnairePane");
+        }
 //        List<AgeThresholdPhenoItem> agePhenoItems = developmentQuestionnare.getAgeThresholdPhenoItemList();
 //        phenoRows = agePhenoItems.stream().map(Qphenorow::new).collect(Collectors.toList());
         phenoqTable = new PhenoqTable(List.of()); // initialize here with empty list
