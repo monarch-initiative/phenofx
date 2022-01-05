@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.monarchinitiative.phenofx.questionnnaire.phenoitem.AgeThresholdPhenoItem;
+import org.monarchinitiative.phenofx.questionnnaire.phenoitem.DefaultPhenoAnswer;
 import org.monarchinitiative.phenofx.questionnnaire.phenoitem.PhenoAnswer;
 import org.monarchinitiative.phenofx.questionnnaire.phenoitem.PhenoItem;
 import org.monarchinitiative.phenofx.questionnnaire.qtable.PhenoqTable;
@@ -18,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -93,26 +95,14 @@ Logger LOGGER = LoggerFactory.getLogger(QuestionnairePane.class);
                 "-fx-border-color: blue;");
 
         setCenter(root);
+    }
 
-//        Stage stage = new Stage();
-//        stage.setWidth(1000);
-//        stage.setHeight(700);
-//        stage.setScene(scene);
-//        stage.setTitle("HPO-Based Phenotype Questionnaire");
-//        stage.showAndWait();
-//        ListView<String> listView = new ListView<>();
-//        for (var pitem : phenoRows) {
-//            listView.getItems().add(pitem.toPhenoItem().toString());
-//        }
-//        listView.setMinWidth(990);
-//        listView.setMinHeight(650);
-//        HBox hbox = new HBox(listView);
-////        Scene scene2 = new Scene(hbox, 1000, 700);
-//        stage.setScene(scene2);
-//        stage.setTitle("Answers");
-//        stage.show();
-
-
+    public List<PhenoAnswer> getAnswers() {
+        List<PhenoAnswer> answers = new ArrayList<>();
+        for (Qphenorow prow : this.phenoqTable.getItems()) {
+            answers.add(new DefaultPhenoAnswer(prow.toPhenoItem()));
+        }
+        return answers;
     }
 
 
